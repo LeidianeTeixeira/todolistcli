@@ -1,13 +1,18 @@
 import React from 'react';
-import{SafeAreaView, Text} from 'react-native';
+import{SafeAreaView, Text, TextInput} from 'react-native';
 import { styles } from './styles';
 
 export function Home(){
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.text}>
-        Tela Home!
+        Olá, Leidiane!
       </Text>
+      <TextInput 
+      style={styles.input}
+      placeholder="Digite sua tarefa..."
+      placeholderTextColor='#555'
+      />
     </SafeAreaView>
   );
 }
