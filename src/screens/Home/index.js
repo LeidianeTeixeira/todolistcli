@@ -1,13 +1,17 @@
 import React from 'react';
-import{View, Text} from 'react-native';
+import{SafeAreaView, Text} from 'react-native';
 import { styles } from './styles';
 
 export function Home(){
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text style={styles.text}>
         Tela Home!
       </Text>
-    </View>
+    </SafeAreaView>
   );
 }
+
+//SafeAreaView: componente que evita que no caso do ios o conteúdo da tela
+// fique por cima da barra de status
+// No android não tem efeito.
