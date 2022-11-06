@@ -1,5 +1,10 @@
 import React from 'react';
-import{SafeAreaView, Text, TextInput} from 'react-native';
+import{
+  SafeAreaView, 
+  Text, 
+  TextInput, 
+  TouchableOpacity
+} from 'react-native';
 import { styles } from './styles';
 
 export function Home(){
@@ -9,11 +14,21 @@ export function Home(){
         Olá, Leidiane!
       </Text>
       <TextInput 
-      style={styles.input}
-      placeholder="Digite sua tarefa..."
-      placeholderTextColor='#555'
+        style={styles.input}
+        placeholder="Digite sua tarefa..."
+        placeholderTextColor='#555'
       />
+
+      <TouchableOpacity 
+        style={styles.button}
+        activeOpacity={0.7}
+      >
+        <Text style = {styles.buttonText}>
+          Adicionar
+        </Text>
+      </TouchableOpacity>
     </SafeAreaView>
+   
   );
 }
 
