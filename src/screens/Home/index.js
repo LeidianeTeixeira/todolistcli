@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import{
   SafeAreaView, 
   Text, 
@@ -8,6 +8,9 @@ import{
 import { styles } from './styles';
 
 export function Home(){
+  const [novaTarefa, setNovaTarefa] = useState();
+  const [count, setCount] = useState(0);
+
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.text}>
@@ -22,11 +25,15 @@ export function Home(){
       <TouchableOpacity 
         style={styles.button}
         activeOpacity={0.7}
+        onPress={() => setCount(count + 1)}
       >
         <Text style = {styles.buttonText}>
           Adicionar
         </Text>
       </TouchableOpacity>
+      <Text style={[styles.text, {marginTop: 20}]}>
+        Você clicou {count} vezes
+      </Text>
     </SafeAreaView>
    
   );
