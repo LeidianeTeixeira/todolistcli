@@ -8,8 +8,12 @@ import{
 import { styles } from './styles';
 
 export function Home(){
-  const [novaTarefa, setNovaTarefa] = useState();
-  const [count, setCount] = useState(0);
+  const [newTask, setNewTask] = useState("");
+  const [tasks, setTasks] = useState([]);
+  
+  function handleAddNewTask(){
+    setTasks(oldState => [...oldState, newTask]);
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -20,20 +24,30 @@ export function Home(){
         style={styles.input}
         placeholder="Digite sua tarefa..."
         placeholderTextColor='#555'
+        onChangeText={setNewTask}
       />
 
       <TouchableOpacity 
         style={styles.button}
         activeOpacity={0.7}
-        onPress={() => setCount(count + 1)}
+        onPress={handleAddNewTask}
       >
         <Text style = {styles.buttonText}>
           Adicionar
         </Text>
       </TouchableOpacity>
       <Text style={[styles.text, {marginTop: 20}]}>
-        Você clicou {count} vezes
+       Minhas Tarefas
       </Text>
+      {
+        tasks.map(task => (
+          <TouchableOpacity style = {styles.buttonTask}>
+            <Text style={styles.textTask}>
+              {task}
+            </Text>
+          </TouchableOpacity>
+        ))
+      }
     </SafeAreaView>
    
   );
