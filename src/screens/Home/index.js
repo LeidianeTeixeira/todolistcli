@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import{
   SafeAreaView, 
+  ScrollView, 
   Text, 
   TextInput, 
-  TouchableOpacity
+  TouchableOpacity,
 } from 'react-native';
 import { styles } from './styles';
 
@@ -39,15 +40,19 @@ export function Home(){
       <Text style={[styles.text, {marginTop: 20}]}>
        Minhas Tarefas
       </Text>
-      {
-        tasks.map(task => (
-          <TouchableOpacity style = {styles.buttonTask}>
-            <Text style={styles.textTask}>
-              {task}
-            </Text>
-          </TouchableOpacity>
-        ))
-      }
+      <ScrollView>
+        {
+          tasks.map(task => (
+            <TouchableOpacity 
+              style = {styles.buttonTask}
+              key={task}>
+              <Text style={styles.textTask}>
+                {task}
+              </Text>
+            </TouchableOpacity>
+          ))
+        }
+      </ScrollView>
     </SafeAreaView>
    
   );
