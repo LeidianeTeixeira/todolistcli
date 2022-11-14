@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import{
+  FlatList,
   SafeAreaView, 
   ScrollView, 
   Text, 
@@ -40,19 +41,18 @@ export function Home(){
       <Text style={[styles.text, {marginTop: 20}]}>
        Minhas Tarefas
       </Text>
-      <ScrollView>
-        {
-          tasks.map(task => (
-            <TouchableOpacity 
-              style = {styles.buttonTask}
-              key={task}>
-              <Text style={styles.textTask}>
-                {task}
-              </Text>
-            </TouchableOpacity>
-          ))
-        }
-      </ScrollView>
+      <FlatList
+        data={tasks}
+        keyExtractor={item => item}
+        renderItem={({item}) => (
+          <TouchableOpacity style = {styles.buttonTask}>
+            <Text style={styles.textTask}>
+              {item}
+            </Text>
+          </TouchableOpacity>
+        })
+      }
+      />
     </SafeAreaView>
    
   );
