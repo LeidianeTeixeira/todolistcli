@@ -7,6 +7,7 @@ import{
   TextInput, 
   TouchableOpacity,
 } from 'react-native';
+import { Button } from '../../components/Button';
 import { styles } from './styles';
 
 export function Home(){
@@ -19,9 +20,11 @@ export function Home(){
 
   return (
     <SafeAreaView style={styles.container}>
+
       <Text style={styles.text}>
         Olá, Leidiane!
       </Text>
+
       <TextInput 
         style={styles.input}
         placeholder="Digite sua tarefa..."
@@ -29,18 +32,16 @@ export function Home(){
         onChangeText={setNewTask}
       />
 
-      <TouchableOpacity 
-        style={styles.button}
-        activeOpacity={0.7}
+      <Button
         onPress={handleAddNewTask}
-      >
-        <Text style = {styles.buttonText}>
-          Adicionar
-        </Text>
-      </TouchableOpacity>
+        activeOpacity={0.7}
+        title="Adicionar Tarefa"
+      />
+      
       <Text style={[styles.text, {marginTop: 20}]}>
        Minhas Tarefas
       </Text>
+
       <FlatList
         data={tasks}
         keyExtractor={item => item}
@@ -49,10 +50,10 @@ export function Home(){
             <Text style={styles.textTask}>
               {item}
             </Text>
-          </TouchableOpacity>
-        })
-      }
+          </TouchableOpacity>  
+        )}
       />
+      
     </SafeAreaView>
    
   );
