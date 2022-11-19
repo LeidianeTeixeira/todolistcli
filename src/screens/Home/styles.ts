@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
         padding: Platform.os === 'ios' ? 15 : 10,
         marginHorizontal: 20
     },
-    buttonTask:{
+    /*buttonTask:{
         backgroundColor:'#1F1E25',
         padding:15,
         borderRadius:22,
@@ -29,7 +29,7 @@ export const styles = StyleSheet.create({
     textTask:{
         color: 'white',
         fontSize:20
-    }
+    }*/
 
 
     //Com Platform, é possivel testar qual SO para fazer configurações

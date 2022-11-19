@@ -8,6 +8,7 @@ import{
   TouchableOpacity,
 } from 'react-native';
 import { Button } from '../../components/Button';
+import { TaskCard } from '../../components/TextCard';
 import { styles } from './styles';
 
 interface TaskData{
@@ -62,12 +63,11 @@ export function Home(){
         data={tasks}
         keyExtractor={item => item.id}
         renderItem={({item}) => (
-          <TouchableOpacity style = {styles.buttonTask}
-          onPress={()=>handleRemoveTask(item.id)}>
-            <Text style={styles.textTask}>
-              {item.name}
-            </Text>
-          </TouchableOpacity>  
+          <TaskCard
+          title={item.name}
+          onPress={()=>handleRemoveTask(item.id)}
+          />
+        
         )}
       />
       
