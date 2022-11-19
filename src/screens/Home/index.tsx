@@ -67,7 +67,6 @@ export function Home(){
           title={item.name}
           onPress={()=>handleRemoveTask(item.id)}
           />
-        
         )}
       />
       
